@@ -31,15 +31,11 @@ class Form_water(StatesGroup):
 
 @dp.message_handler(commands=['start'])
 async def process_start_command(message: types.Message):
-    await message.reply(f"Привет {message['from']['first_name']} это бот марафона PRO_тело от ARISHA_VESNA!\n"
+    await message.reply(f"Привет {message['from']['first_name']} это бот марафона Vesnafit от ARISHA_VESNA!\n"
                         f"С этого дня я активно буду с тобой на связи ❤❤\n"
-                        f"Здесь ты можешь увидеть и получить следующие вещи\n"
+                        f"Здесь ты можешь увидеть и получить следующие вещи:\n"
                         f"✔ Расчет ккал\n"
                         f"✔ Расчет нормы воды\n"
-                        f"✔ Файлик с основными заменами продуктов\n"
-                        f"✔ Мотивационные ролики\n"
-                        f"✔ Трекер полезных привычек\n"
-                        f"\n"
                         f"В меню ниже ты можешь выбрать, с чего начать!", reply_markup=kb.markup3)
 
 
