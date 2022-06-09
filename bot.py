@@ -101,7 +101,7 @@ async def process_help_command(message: types.Message):
                 data['drive'] = message.text
 
             await Form.next()
-            norma = (((9.99*int(data['weight']))+(6.25*int(data['tall']))-(4.92*int(data['age'])))-161)*drive_dict[f'{data["drive"]}']
+            norma = (((9.99*float(data['weight']))+(6.25*int(data['tall']))-(4.92*int(data['age'])))-161)*drive_dict[f'{data["drive"]}']
             await message.reply(f"{round(norma)}Ккал - это твой калораж для поддержания текущего веса\n"
                                 f"\n"
                                 f"‼️НАПОМИНАЮ, марафон не предусматривает массонабор‼️\n"
@@ -117,10 +117,8 @@ async def process_help_command(message: types.Message):
             # Update state and data
             async with state.proxy() as data:
                 data['level'] = message.text
-            print(drive_dict[f'{data["drive"]}'])
-            print(data["drive"])
             await Form.next()
-            norma = (((9.99 * int(data['weight'])) + (6.25 * int(data['tall'])) - (4.92 * int(data['age']))) - 161)*drive_dict[f'{data["drive"]}']
+            norma = (((9.99 * float(data['weight'])) + (6.25 * int(data['tall'])) - (4.92 * int(data['age']))) - 161)*drive_dict[f'{data["drive"]}']
             start = norma - (round(norma*dict_procent[f"{data['level']}"][0])/100)
             stop = norma - (round(norma*dict_procent[f"{data['level']}"][1])/100)
             await message.reply(f"Твой коридор калорий от {round(stop)}Ккал до {round(start)}Ккал\n"
@@ -129,13 +127,13 @@ async def process_help_command(message: types.Message):
                                 f"\n")
             await message.reply(f"А вот распределение белков/углеводов/жиров на день\n"
                                 f"Белки: \n"
-                                f"от {round(1.6*int(data['weight']))} до {round(2.1*int(data['weight']))}\n"
+                                f"от {round(1.6*float(data['weight']))} до {round(2.1*float(data['weight']))}\n"
                                 f"\n"
                                 f"Углеводы:\n"
-                                f"от {round(2.2*int(data['weight']))} до {round(3*int(data['weight']))}\n"
+                                f"от {round(2.2*float(data['weight']))} до {round(3*float(data['weight']))}\n"
                                 f"\n"
                                 f"Жиры:\n"
-                                f"от {round(0.8*int(data['weight']))} до {round(1.3*int(data['weight']))}\n"
+                                f"от {round(0.8*float(data['weight']))} до {round(1.3*float(data['weight']))}\n"
                                 f"\n"
                                 f"Сохрани это сообщение 👌🏽(сделай скриншот или перешли его \n"
                                 f"в личные сообщения)")
